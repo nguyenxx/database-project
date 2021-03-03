@@ -1,0 +1,531 @@
+
+<h3> Graph </h3>  
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <div id="chart_div"></div>
+</head>
+<body>
+
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load("current", {packages:['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ["Class", "Credits", { role: "style" } ],
+        ["CISE", 1.00, "pink"],
+        ["MUS", 1.38, "pink"],
+        ["THEA", 1.80, "pink"],
+        ["SMAD", 2.68, "pink"],
+        ["ENG", 2.69, "pink"],
+        ["CS", 2.82, "palevioletred"],
+        ["COB", 2.98, "pink"],
+        ["MATH", 3.10, "pink"],
+        ["HIST", 3.53, "pink"]
+      ]);
+
+      var view = new google.visualization.DataView(data);
+      view.setColumns([0, 1,
+                       { calc: "stringify",
+                         sourceColumn: 1,
+                         type: "string",
+                         role: "annotation" },
+                       2]);
+
+      var options = {
+        title: "Average credit hours of classes, by department \(selected\)",
+        width: 600,
+        height: 400,
+        bar: {groupWidth: "95%"},
+        legend: { position: "none" },
+      };
+      var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+      chart.draw(view, options);
+  }
+  </script>
+<div id="columnchart_values" style="width: 900px; height: 300px;"></div>
+
+<br><br><br><br><br><br><br>
+<h3>Data table</h3>
+
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+</style>
+<table class="tg">
+  <tr>
+    <th class="tg-0lax">subject</th>
+    <th class="tg-0lax">avg</th>
+  </tr>
+  <tr>
+    <td class="tg-0lax">CISE</td>
+    <td class="tg-0lax">1.00000000000000000000</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">ARTS</td>
+    <td class="tg-0lax">1.00000000000000000000</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">BIOT</td>
+    <td class="tg-0lax">1.00000000000000000000</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">ENVM</td>
+    <td class="tg-0lax">1.00000000000000000000</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">CDS</td>
+    <td class="tg-0lax">1.00000000000000000000</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">CE</td>
+    <td class="tg-0lax">1.00000000000000000000</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">IPE</td>
+    <td class="tg-0lax">1.0138888888888889</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">MUAP</td>
+    <td class="tg-0lax">1.1828847481021394</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">UNST</td>
+    <td class="tg-0lax">1.2142857142857143</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">FL</td>
+    <td class="tg-0lax">1.3673469387755102</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">MUS</td>
+    <td class="tg-0lax">1.3838961038961039</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">HON</td>
+    <td class="tg-0lax">1.4002869440459110</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">MSSE</td>
+    <td class="tg-0lax">1.4387755102040816</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">IND</td>
+    <td class="tg-0lax">1.5000000000000000</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">GSCI</td>
+    <td class="tg-0lax">1.5063291139240506</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">IDLS</td>
+    <td class="tg-0lax">1.7142857142857143</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">THEA</td>
+    <td class="tg-0lax">1.8014911463187325</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">AIRS</td>
+    <td class="tg-0lax">1.8765432098765432</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">IS</td>
+    <td class="tg-0lax">1.9601769911504425</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">ISCI</td>
+    <td class="tg-0lax">1.9862068965517241</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">MIED</td>
+    <td class="tg-0lax">2.0000000000000000</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">DANC</td>
+    <td class="tg-0lax">2.0143737166324435</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">EXED</td>
+    <td class="tg-0lax">2.0889328063241107</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">PSYC</td>
+    <td class="tg-0lax">2.0934823091247672</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">TESL</td>
+    <td class="tg-0lax">2.1372549019607843</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">FLED</td>
+    <td class="tg-0lax">2.1428571428571429</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">LTLE</td>
+    <td class="tg-0lax">2.2469135802469136</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">CSD</td>
+    <td class="tg-0lax">2.2535885167464115</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">ART</td>
+    <td class="tg-0lax">2.2561323445521962</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">IECE</td>
+    <td class="tg-0lax">2.2727272727272727</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">ENGR</td>
+    <td class="tg-0lax">2.2932515337423313</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">ACTG</td>
+    <td class="tg-0lax">2.3313782991202346</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">AFST</td>
+    <td class="tg-0lax">2.3658536585365854</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">ARTH</td>
+    <td class="tg-0lax">2.4100000000000000</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">MUED</td>
+    <td class="tg-0lax">2.4519774011299435</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">GRPH</td>
+    <td class="tg-0lax">2.4599483204134367</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">INDU</td>
+    <td class="tg-0lax">2.4701986754966887</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">PHYS</td>
+    <td class="tg-0lax">2.5140924464487035</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">GEOG</td>
+    <td class="tg-0lax">2.5658914728682171</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">MUI</td>
+    <td class="tg-0lax">2.5774647887323944</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">PORT</td>
+    <td class="tg-0lax">2.5897435897435897</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">KIN</td>
+    <td class="tg-0lax">2.6207366984993179</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">IB</td>
+    <td class="tg-0lax">2.6326530612244898</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">SCOM</td>
+    <td class="tg-0lax">2.6334310850439883</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">GEOL</td>
+    <td class="tg-0lax">2.6652126499454744</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">SOCI</td>
+    <td class="tg-0lax">2.6760259179265659</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">SMAD</td>
+    <td class="tg-0lax">2.6840091813312930</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">ENG</td>
+    <td class="tg-0lax">2.6892758936755270</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">WGS</td>
+    <td class="tg-0lax">2.7000000000000000</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">CHIN</td>
+    <td class="tg-0lax">2.7011494252873563</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">CIS</td>
+    <td class="tg-0lax">2.7259100642398287</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">ATEP</td>
+    <td class="tg-0lax">2.7259615384615385</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">ECON</td>
+    <td class="tg-0lax">2.7298444130127298</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">MSCI</td>
+    <td class="tg-0lax">2.7334905660377358</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">MGT</td>
+    <td class="tg-0lax">2.7356321839080460</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">ISAT</td>
+    <td class="tg-0lax">2.7365517241379310</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">GER</td>
+    <td class="tg-0lax">2.7526881720430108</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">READ</td>
+    <td class="tg-0lax">2.7656250000000000</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">ANTH</td>
+    <td class="tg-0lax">2.7783018867924528</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">HTH</td>
+    <td class="tg-0lax">2.7877256317689531</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">GERN</td>
+    <td class="tg-0lax">2.7941176470588235</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">HRD</td>
+    <td class="tg-0lax">2.8256880733944954</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">CS</td>
+    <td class="tg-0lax">2.8281879194630872</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">WRTC</td>
+    <td class="tg-0lax">2.8388396454472200</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">HSA</td>
+    <td class="tg-0lax">2.8540145985401460</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">FAM</td>
+    <td class="tg-0lax">2.8571428571428571</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">HUMN</td>
+    <td class="tg-0lax">2.8787878787878788</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">NUTR</td>
+    <td class="tg-0lax">2.9175627240143369</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">ELED</td>
+    <td class="tg-0lax">2.9197860962566845</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">PHIL</td>
+    <td class="tg-0lax">2.9234693877551020</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">ASTR</td>
+    <td class="tg-0lax">2.9272727272727273</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">MKTG</td>
+    <td class="tg-0lax">2.9301310043668122</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">KOR</td>
+    <td class="tg-0lax">2.9310344827586207</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">HM</td>
+    <td class="tg-0lax">2.9347471451876020</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">FR</td>
+    <td class="tg-0lax">2.9427710843373494</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">SPAN</td>
+    <td class="tg-0lax">2.9458128078817734</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">ECED</td>
+    <td class="tg-0lax">2.9487179487179487</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">ITAL</td>
+    <td class="tg-0lax">2.9693333333333333</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">COB</td>
+    <td class="tg-0lax">2.9812500000000000</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">BSAN</td>
+    <td class="tg-0lax">3.0000000000000000</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">HUM</td>
+    <td class="tg-0lax">3.0000000000000000</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">ISS</td>
+    <td class="tg-0lax">3.0000000000000000</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">LAT</td>
+    <td class="tg-0lax">3.0000000000000000</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">GRK</td>
+    <td class="tg-0lax">3.0000000000000000</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">MAED</td>
+    <td class="tg-0lax">3.0000000000000000</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">ENVT</td>
+    <td class="tg-0lax">3.0000000000000000</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">OM</td>
+    <td class="tg-0lax">3.0000000000000000</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">CLAS</td>
+    <td class="tg-0lax">3.0000000000000000</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">BUS</td>
+    <td class="tg-0lax">3.0000000000000000</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">REL</td>
+    <td class="tg-0lax">3.0000000000000000</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">IA</td>
+    <td class="tg-0lax">3.0000000000000000</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">BLAW</td>
+    <td class="tg-0lax">3.0000000000000000</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">VOED</td>
+    <td class="tg-0lax">3.0000000000000000</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">AMST</td>
+    <td class="tg-0lax">3.0000000000000000</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">JUST</td>
+    <td class="tg-0lax">3.0307377049180328</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">ARCD</td>
+    <td class="tg-0lax">3.0426540284360190</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">FIN</td>
+    <td class="tg-0lax">3.0458015267175573</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">MATH</td>
+    <td class="tg-0lax">3.1012567324955117</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">PERS</td>
+    <td class="tg-0lax">3.1111111111111111</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">NSG</td>
+    <td class="tg-0lax">3.1126760563380282</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">CHEM</td>
+    <td class="tg-0lax">3.1177924217462932</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">BIO</td>
+    <td class="tg-0lax">3.1243868255080589</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">RUS</td>
+    <td class="tg-0lax">3.1442307692307692</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">CRJU</td>
+    <td class="tg-0lax">3.1724137931034483</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">SWA</td>
+    <td class="tg-0lax">3.2033898305084746</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">NPS</td>
+    <td class="tg-0lax">3.2142857142857143</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">POSC</td>
+    <td class="tg-0lax">3.2172284644194757</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">PPA</td>
+    <td class="tg-0lax">3.2611464968152866</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">SRM</td>
+    <td class="tg-0lax">3.2810304449648712</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">SOWK</td>
+    <td class="tg-0lax">3.3864306784660767</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">HIST</td>
+    <td class="tg-0lax">3.5256776034236805</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">JAPN</td>
+    <td class="tg-0lax">3.8266666666666667</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">ARAB</td>
+    <td class="tg-0lax">3.8921933085501859</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">ARED</td>
+    <td class="tg-0lax">3.9542253521126761</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">INTA</td>
+    <td class="tg-0lax">4.0000000000000000</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">EDUC</td>
+    <td class="tg-0lax">5.1031991744066047</td>
+  </tr>
+</table>
+
+

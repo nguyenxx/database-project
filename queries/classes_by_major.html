@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+<body>
+
+<h3>Query</h3>
+
+<pre>
+SELECT major, number_of_courses
+FROM classes_per_major()
+</pre>
+
+<h3>Table</h3>
+
+<table border="1" cellpadding="3" style="text-align: center;">
+    <tr>
+        <th>Major</th>
+        <th>Number of Classes</th>
+    </tr>
+    <tr>
+        <td>HIST</td>
+        <td>174</td>
+    </tr>
+    <tr>
+        <td>BIO</td>
+        <td>163</td>
+    </tr>
+    <tr>
+        <td>ENG</td>
+        <td>139</td>
+    </tr>
+    <tr>
+        <td>ISAT</td>
+        <td>117</td>
+    </tr>
+    <tr>
+        <td>KIN</td>
+        <td>100</td>
+    </tr>
+    <tr>
+        <td>SCOM</td>
+        <td>98</td>
+    </tr>
+    <tr>
+        <td>NSG</td>
+        <td>95</td>
+    </tr>
+    <tr>
+        <td>MATH</td>
+        <td>92</td>
+    </tr>
+    <tr>
+        <td>MUS</td>
+        <td>89</td>
+    </tr>
+    <tr>
+        <td>POSC</td>
+        <td>88</td>
+    </tr>
+    <tr>
+        <td>WRTC</td>
+        <td>87</td>
+    </tr>
+    <tr>
+        <td>SMAD</td>
+        <td>86</td>
+    </tr>
+    <tr>
+        <td>ANTH</td>
+        <td>83</td>
+    </tr>
+    <tr>
+        <td>SPAN</td>
+        <td>80</td>
+    </tr>
+    <tr>
+        <td>CHEM</td>
+        <td>79</td>
+    </tr>
+    <tr>
+        <td>GEOG</td>
+        <td>78</td>
+    </tr>
+    <tr>
+        <td>PHYS</td>
+        <td>78</td>
+    </tr>
+    <tr>
+        <td>MUAP</td>
+        <td>75</td>
+    </tr>
+    <tr>
+        <td>ART</td>
+        <td>72</td>
+    </tr>
+    <tr>
+        <td>PSYC</td>
+        <td>71</td>
+    </tr>
+    <tr>
+        <td>REL</td>
+        <td>71</td>
+    </tr>
+    <tr>
+        <td>SOCI</td>
+        <td>69</td>
+    </tr>
+    <tr>
+        <td>ARTH</td>
+        <td>65</td>
+    </tr>
+    <tr>
+        <td>HTH</td>
+        <td>64</td>
+    </tr>
+    <tr>
+        <td>JUST</td>
+        <td>49</td>
+    </tr>
+</table>
+
+<h3>Chart</h3>
+
+<div id="columnchart_values" style="width: 1100px; height: 300px;"></div>
+
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
+  function drawChart() {
+
+    var data = google.visualization.arrayToDataTable([
+      ["Major", "Number of Classes"],
+      ["HIST", 174],
+      ["BIO", 163],
+      ["ENG", 139],
+      ["ISAT", 117],
+      ["KIN", 100],
+      ["SCOM", 98],
+      ["NSG", 95],
+      ["MATH", 92],
+      ["MUS", 89],
+      ["POSC", 88],
+      ["WRTC", 87],
+      ["SMAD", 86],
+      ["ANTH", 83],
+      ["SPAN", 80],
+      ["CHEM", 79],
+      ["GEOG", 78],
+      ["PHYS", 78],
+      ["MUAP", 75],
+      ["THEA", 73],
+      ["ART", 72],
+      ["PSYC", 71],
+      ["REL", 71],
+      ["SOCI", 69],
+      ["ARTH", 65],
+      ["HTH", 64]
+    ]);
+
+    var view = new google.visualization.DataView(data);
+      view.setColumns([0, 1,
+                       { calc: "stringify",
+                         sourceColumn: 1,
+                         type: "string",
+                         role: "annotation" },
+                       ]);
+
+    var options = {
+        title: "Majors with the Most Courses Offered",
+        width: 1300,
+        height: 600,
+        bar: {groupWidth: "50%"},
+        legend: { position: "none" },
+      };
+
+      var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+
+    chart.draw(view, options);
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!doctype html>
+<title>Prerequisites</title>
+
+<head>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script src="static/js/jquery.min.js"></script>
+  <script src="static/js/bootstrap.bundle.min.js"></script>
+  <script src="static/js/jquery.easing.min.js"></script>
+  <script src="static/js/scrolling-nav.js"></script>
+  <link rel="stylesheet" href="/static/css/custom.css">
+  <link rel="stylesheet" media="screen" href="/static/css/bootstrap.min.css">
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Lato:300&display=swap" rel="stylesheet">
+  <style>
+    p {
+      color: black;
+      font-family: 'Lato', sans-serif;
+      font-size: 16px;
+    }
+
+    li {
+      color: #151515;
+    }
+
+    a {
+      color: black;
+      transition: .7s ease;
+      font-family: 'Roboto', sans-serif;
+      font-size: 18px;
+    }
+
+    h1 {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 30px;
+      margin-top: 25px;
+      margin-left: 70px;
+      margin-right: 20px;
+      margin-bottom: 25px;
+      font-weight: 600;
+      color: #472b7f;
+    }
+
+    .padding {
+      padding-left: 66px;
+      padding-right: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <!--Navbar-->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/"><img src="static/images/jmu-logo.png" alt="logo"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" href="/">About <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="/programs">Programs</a>
+        <a class="nav-item nav-link" href="/courses">Explore Courses</a>
+        <a class="nav-item nav-link" href="/class">Class Sizes</a>
+        <a class="nav-item nav-link" href="/credits">Credits</a>
+        <a class="nav-item nav-link active" href="/pre_req">Prerequisites</a>
+      </div>
+    </div>
+  </nav>
+  <!-- END Navbar-->
+
+  <div class="row">
+    <div class="container col-lg-12">
+      <div class="img-fluid" style="width: 100%">
+        <img src="static/images/prereq.jpg" alt="jmu-lib" style="width:100%">
+      </div>
+    </div>
+  </div>
+
+  <h1>Enter a major to see what percent of class require a prerequisite in that major</h1>
+  <form class="padding">
+    <p><select class="form-control input-sm" name="major" value="{{ major }}">
+      <option>Select your major</option>
+      {% for row in cur2 %}
+      <option> {{ row[0]}}</option>
+      {% endfor %}
+    </select></p>
+    <p><input type="submit" class="btn btn-dark" value="Submit"></p>
+  </form>
+
+  <footer id="sticky-footer" class="py-4 bg-light text-white-50">
+    <div class="container text-center">
+      <p style="font-size: 14px;">800 SOUTH MAIN STREET <br>
+        HARRISONBURG, VA 22807 <br>
+        <a href="#" style="font-size: 14px;">CONTACT US</a></p>
+    </div>
+  </footer>
+</body>
+
+</html>

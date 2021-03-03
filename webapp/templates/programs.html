@@ -1,0 +1,378 @@
+<!-- Team Big Data -->
+<html>
+
+<head>
+  <link rel="stylesheet" href="{{url_for('static', filename='css/custom.css')}}">
+  <link rel="stylesheet" media="screen" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+  <script src="static/js/jquery.min.js"></script>
+  <script src="static/js/bootstrap.bundle.min.js"></script>
+  <script src="static/js/jquery.easing.min.js"></script>
+  <script src="static/js/scrolling-nav.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Lato:300&display=swap" rel="stylesheet">
+  <style>
+    .padding-0 {
+      padding-right: 0px;
+      padding-left: 0px;
+    }
+
+    li {
+      color: #151515;
+    }
+
+    p {
+      color: black;
+      font-family: 'Lato', sans-serif;
+      font-size: 16px;
+    }
+
+    a {
+      color: black;
+      transition: .7s ease;
+      font-family: 'Roboto', sans-serif;
+      font-size: 18px;
+    }
+
+    h1 {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 30px;
+      margin-top: 25px;
+      margin-left: 70px;
+      margin-right: 20px;
+      margin-bottom: 25px;
+      font-weight: 600;
+      color: #472b7f;
+    }
+
+    h2 {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 30px;
+      margin-top: 25px;
+      margin-left: 70px;
+      margin-right: 20px;
+      margin-bottom: 25px;
+      font-weight: 600;
+      color: #AD9C65;
+      text-decoration: underline;
+    }
+
+    .margin-list {
+      padding-left: 66px;
+      padding-right: 60px;
+    }
+
+    .margin-row {
+      margin-top: 25px;
+      margin-left: 55px;
+      margin-right: 70px;
+      margin-bottom: 25px;
+    }
+
+    .padding-card-txt2 {
+      padding-left: 70px;
+      padding-right: 30px;
+    }
+  </style>
+</head>
+
+<body class="body">
+  <!--Navbar-->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/"><img src="static/images/jmu-logo.png" alt="logo"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" href="/">About <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link active" href="/programs">Programs</a>
+        <a class="nav-item nav-link" href="/courses">Explore Courses</a>
+        <a class="nav-item nav-link" href="/percentage">Class Sizes</a>
+        <a class="nav-item nav-link" href="/credits">Credits</a>
+        <a class="nav-item nav-link" href="/pre_req">Prerequisites</a>
+      </div>
+    </div>
+  </nav>
+  <!-- END Navbar-->
+
+  <div class="row">
+    <div class="container col-lg-12">
+      <div class="img-fluid" style="width: 100%">
+        <img src="static/images/programs1.jpg" alt="jmu-lib" style="width:100%">
+      </div>
+    </div>
+  </div>
+</body>
+
+<div class="row">
+  <div class="container col-lg-12">
+    <h1 style="text-align: center;"> Explore Degree Programs</h1>
+
+    <p style="text-align: center;">Select your catalog year to find programs offered</p>
+    <form>
+      <p style="margin-left: 25%; margin-right: 25%; width: 50%;"><select class="form-control input-sm" name="catalog" value="{{ catalog }}">
+        <option>Select Catalog Year</option>
+        <option>2020-2021 Undergraduate Catalog</option>
+        <option>2018-19 Undergraduate Catalog (DRAFT)</option>
+      </select></p>
+      <p style="text-align: center;"><button type="submit" class="btn btn-dark">Submit</button></p>
+    </form>
+  </div>
+</div>
+
+{% if data %}
+<div class="row">
+  <h2> A </h2>
+  <div class="container col-lg-12 margin-list">
+    <ul class="list-group">
+      {% for row in data %}
+        {% if row[0].0 == 'A' %}
+          <li class="list-group-item"><a href="/courses?major={{ row[0] }}&catalog_year={{ catalog }}&view_chart=Table+View">{{ row[0] }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+
+  <h2> B </h2>
+  <div class="container col-lg-12 margin-list">
+    <ul class="list-group">
+      {% for row in data %}
+        {% if row[0].0 == 'B' %}
+          <li class="list-group-item"><a href="/courses?major={{ row[0] }}&catalog_year={{ catalog }}&view_chart=Table+View">{{ row[0] }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+
+  <h2> C </h2>
+  <div class="container col-lg-12 margin-list">
+    <ul class="list-group">
+      {% for row in data %}
+        {% if row[0].0 == 'C' %}
+          <li class="list-group-item"><a href="/courses?major={{ row[0] }}&catalog_year={{ catalog }}&view_chart=Table+View">{{ row[0] }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+
+  <h2> D </h2>
+  <div class="container col-lg-12 margin-list">
+    <ul class="list-group">
+      {% for row in data %}
+        {% if row[0].0 == 'D' %}
+          <li class="list-group-item"><a href="/courses?major={{ row[0] }}&catalog_year={{ catalog }}&view_chart=Table+View">{{ row[0] }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+
+  <h2> E </h2>
+  <div class="container col-lg-12 margin-list">
+    <ul class="list-group">
+      {% for row in data %}
+        {% if row[0].0 == 'E' %}
+          <li class="list-group-item"><a href="/courses?major={{ row[0] }}&catalog_year={{ catalog }}&view_chart=Table+View">{{ row[0] }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+
+  <h2> F </h2>
+  <div class="container col-lg-12 margin-list">
+    <ul class="list-group">
+      {% for row in data %}
+        {% if row[0].0 == 'F' %}
+          <li class="list-group-item"><a href="/courses?major={{ row[0] }}&catalog_year={{ catalog }}&view_chart=Table+View">{{ row[0] }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+
+  <h2> G </h2>
+  <div class="container col-lg-12 margin-list">
+    <ul class="list-group">
+      {% for row in data %}
+        {% if row[0].0 == 'G' %}
+          <li class="list-group-item"><a href="/courses?major={{ row[0] }}&catalog_year={{ catalog }}&view_chart=Table+View">{{ row[0] }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+
+  <h2> H </h2>
+  <div class="container col-lg-12 margin-list">
+    <ul class="list-group">
+      {% for row in data %}
+        {% if row[0].0 == 'H' %}
+          <li class="list-group-item"><a href="/courses?major={{ row[0] }}&catalog_year={{ catalog }}&view_chart=Table+View">{{ row[0] }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+
+  <h2> I </h2>
+  <div class="container col-lg-12 margin-list">
+    <ul class="list-group">
+      {% for row in data %}
+        {% if row[0].0 == 'I' %}
+          <li class="list-group-item"><a href="/courses?major={{ row[0] }}&catalog_year={{ catalog }}&view_chart=Table+View">{{ row[0] }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+
+  <h2> J </h2>
+  <div class="container col-lg-12 margin-list">
+    <ul class="list-group">
+      {% for row in data %}
+        {% if row[0].0 == 'J' %}
+          <li class="list-group-item"><a href="/courses?major={{ row[0] }}&catalog_year={{ catalog }}&view_chart=Table+View">{{ row[0] }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+
+  <h2> K </h2>
+  <div class="container col-lg-12 margin-list">
+    <ul class="list-group">
+      {% for row in data %}
+        {% if row[0].0 == 'K' %}
+          <li class="list-group-item"><a href="/courses?major={{ row[0] }}&catalog_year={{ catalog }}&view_chart=Table+View">{{ row[0] }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+
+  <h2> L </h2>
+  <div class="container col-lg-12 margin-list">
+    <ul class="list-group">
+      {% for row in data %}
+        {% if row[0].0 == 'L' %}
+          <li class="list-group-item"><a href="/courses?major={{ row[0] }}&catalog_year={{ catalog }}&view_chart=Table+View">{{ row[0] }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+
+  <h2> M </h2>
+  <div class="container col-lg-12 margin-list">
+    <ul class="list-group">
+      {% for row in data %}
+        {% if row[0].0 == 'M' %}
+          <li class="list-group-item"><a href="/courses?major={{ row[0] }}&catalog_year={{ catalog }}&view_chart=Table+View">{{ row[0] }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+
+  <h2> N </h2>
+  <div class="container col-lg-12 margin-list">
+    <ul class="list-group">
+      {% for row in data %}
+        {% if row[0].0 == 'N' %}
+          <li class="list-group-item"><a href="/courses?major={{ row[0] }}&catalog_year={{ catalog }}&view_chart=Table+View">{{ row[0] }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+
+  <h2> O </h2>
+  <div class="container col-lg-12 margin-list">
+    <ul class="list-group">
+      {% for row in data %}
+        {% if row[0].0 == 'O' %}
+          <li class="list-group-item"><a href="/courses?major={{ row[0] }}&catalog_year={{ catalog }}&view_chart=Table+View">{{ row[0] }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+
+  <h2> P </h2>
+  <div class="container col-lg-12 margin-list">
+    <ul class="list-group">
+      {% for row in data %}
+        {% if row[0].0 == 'P' %}
+          <li class="list-group-item"><a href="/courses?major={{ row[0] }}&catalog_year={{ catalog }}&view_chart=Table+View">{{ row[0] }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+
+  <h2> R </h2>
+  <div class="container col-lg-12 margin-list">
+    <ul class="list-group">
+      {% for row in data %}
+        {% if row[0].0 == 'R' %}
+          <li class="list-group-item"><a href="/courses?major={{ row[0] }}&catalog_year={{ catalog }}&view_chart=Table+View">{{ row[0] }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+
+  <h2> S </h2>
+  <div class="container col-lg-12 margin-list">
+    <ul class="list-group">
+      {% for row in data %}
+        {% if row[0].0 == 'S' %}
+          <li class="list-group-item"><a href="/courses?major={{ row[0] }}&catalog_year={{ catalog }}&view_chart=Table+View">{{ row[0] }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+
+  <h2> T </h2>
+  <div class="container col-lg-12 margin-list">
+    <ul class="list-group">
+      {% for row in data %}
+        {% if row[0].0 == 'T' %}
+          <li class="list-group-item"><a href="/courses?major={{ row[0] }}&catalog_year={{ catalog }}&view_chart=Table+View">{{ row[0] }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+
+  <h2> U </h2>
+  <div class="container col-lg-12 margin-list">
+    <ul class="list-group">
+      {% for row in data %}
+        {% if row[0].0 == 'U' %}
+          <li class="list-group-item"><a href="/courses?major={{ row[0] }}&catalog_year={{ catalog }}&view_chart=Table+View">{{ row[0] }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+
+  <h2> V </h2>
+  <div class="container col-lg-12 margin-list">
+    <ul class="list-group">
+      {% for row in data %}
+        {% if row[0].0 == 'V' %}
+          <li class="list-group-item"><a href="/courses?major={{ row[0] }}&catalog_year={{ catalog }}&view_chart=Table+View">{{ row[0] }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+
+  <h2> W </h2>
+  <div class="container col-lg-12 margin-list" style="padding-bottom: 4em;">
+    <ul class="list-group">
+      {% for row in data %}
+        {% if row[0].0 == 'W' %}
+          <li class="list-group-item"><a href="/courses?major={{ row[0] }}&catalog_year={{ catalog }}&view_chart=Table+View">{{ row[0] }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+{% endif %}
+
+<footer id="sticky-footer" class="py-4 bg-light text-white-50">
+  <div class="container text-center">
+    <p style="font-size: 14px;">800 SOUTH MAIN STREET <br>
+      HARRISONBURG, VA 22807 <br>
+      <a href="#" style="font-size: 14px;">CONTACT US</a></p>
+  </div>
+</footer>
+
+</html>

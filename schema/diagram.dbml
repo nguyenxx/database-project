@@ -1,0 +1,41 @@
+Table enrollment {
+  subject text
+  number integer 
+  title text
+  enrolled integer
+  enrl_cap integer
+  term integer
+}
+
+Table course {
+  major text
+  catalog_year text
+  subject text
+  number integer
+  title text
+  description text
+  credits integer
+  prerequisite text
+  corequisite text
+  typically_offerd text
+  instruction_type text
+  is_gened text
+}
+
+Table section {
+  subject text
+  number integer
+  section text 
+  instructor text
+  days text
+  beg_time text
+  end_time text
+  room text
+}
+
+Table program {
+  catalog_year text
+  degree text
+  major text
+  program_description text
+}

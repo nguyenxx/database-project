@@ -1,0 +1,135 @@
+%%
+%% GENERAL INSTRUCTIONS
+%%
+%% Each team member should contribute to the writing/editing of each section.
+%%
+%% Replace the \section titles with specific phrases related to your project.
+%%
+%% You may rearrange the order as long as you address the main prompts below.
+%%
+
+\documentclass[11pt]{article}
+
+% fonts
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[sc]{mathpazo}
+
+% spacing
+\usepackage[margin=1in]{geometry}
+\setlength{\parskip}{1ex}
+\usepackage{multicol}
+\usepackage{setspace}
+\onehalfspacing
+
+% orphans and widows
+\clubpenalty=10000
+\widowpenalty=10000
+
+%------------------------------------------------------------------------------%
+\begin{document}
+
+%% Insert the name of your project, the name of your team, and the name and email of each student.
+
+\begin{center}
+\bfseries\huge
+Exploring Courses with Ease: \\
+Redesigning the JMU Undergraduate Catalog
+\end{center}
+
+\begin{center}
+\itshape\large
+Team Big Data 
+\end{center}
+
+\begin{multicols}{4}
+\centering
+
+Josh Norton \\
+{\footnotesize nortonjs@dukes.jmu.edu}
+
+Susie Nguyen \\
+{\footnotesize nguyenxx@dukes.jmu.edu}
+
+Alicia Pritchett\\
+{\footnotesize pritchat@dukes.jmu.edu}
+
+Sam Kettlewell-Sites \\
+{\footnotesize kettlesh@dukes.jmu.edu}
+
+\end{multicols}
+
+%------------------------------------------------------------------------------%
+\section*{Problem and Vision}
+%% Introduce the main idea of your project. What is the exact problem you are going to solve? What is your vision for the solution? How will this benefit potential stakeholders? (e.g., users, data owners, society) Provide background information about the problem domain.
+
+\subsection*{Problem}
+
+As the world develops and the workforce becomes more competitive, an increasing number of students are actively pursuing college. Higher education institutions offer many of their services and resources online --- including important pieces of information such as course catalogs. For example, James Madison University provides undergraduate and graduate catalogs on its website (https://www.jmu.edu/catalog/). Unfortunately, navigating through the JMU course catalog is not very intuitive because it requires multiple steps to get to the information. How do students find graduation requirements? First, they need to search for the "Degrees Offered" link located in the middle of the right hand-side secondary navigation bar to look for the degree of their interest. Next, they need to scroll through the list of all the degrees offered at JMU and click on the one they need to see its course catalog. Despite doing a good job of laying out the courses into different categories (such as major requirements, degree requirements and sub-requirements), the website does not display the descriptions of the courses until you click on the course link that takes you to yet another page. This approach requires the visitors to jump across multiple pages. In addition to having complex navigation, the JMU catalog does not clearly present additional but crucial information such as prerequisites. 
+
+\subsection*{Vision}
+Our vision for this project is to redesign ways users interact with actual data from the JMU undergraduate course catalog and implement an improved web-based interface. The main goal is to deliver a web-based application that serves as an academic tool for exploring different course options, enabling a more coherent in-depth view of all the information about the courses available to help users make better decisions. 
+
+%------------------------------------------------------------------------------%
+\section*{Data and Questions}
+%% Describe the data sets you will use. Where does the data come from, and who owns it? What is the data primarily about? About how much data is available? Include several example rows/instances to illustrate what the data looks like.
+\subsection*{Data sets}
+
+We will be using two sets of data: JMU’s course catalog data and enrollment data. The course catalog includes details about major requirements, degree requirements, general education requirements, course descriptions, and credit hours. The enrollment data holds all the information about classes, locations, professors teaching the courses, class sizes, number of sections, and wait-lists. The entire course catalog and enrollment data will be available to us. This data will be provided by JMU's registrar’s office. The data given to our team contains all courses and related data to those courses provided in JMU's course catalog. All data provided to our group is property of JMU. The Table 1 above represents an example of the catalog data we will be using. 
+\begin{table}
+\caption{Example Catalog Data}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+CourseID & Name                                                                               & Description                                                                                                                                                                                                                                                                                                      & Credits & Pre-Reg                                                                          \\ \hline
+CS240    & \begin{tabular}[c]{@{}l@{}}Algorithms \\ \\ and \\ \\ Data Structures\end{tabular} & \begin{tabular}[c]{@{}l@{}}Students learn how to implement \\ stacks, queues, lists, sets and \\ maps,using arrays, \\ linked lists, binary \\ trees, heaps, binary search trees,\\ balanced trees and hashing...\end{tabular}                                                                                      & 3       & \begin{tabular}[c]{@{}l@{}}CS159, CS227 \\ \\ or MATH245,\\ MATH231\end{tabular} \\ \hline
+CS374    & \begin{tabular}[c]{@{}l@{}}Database \\ \\ Systems\end{tabular}                     & \begin{tabular}[c]{@{}l@{}}An introduction to database \\ design and management\\ with emphasis on \\ data,definition, data manipulation \\ and query languages \\ found in modern,\\ database management systems.\end{tabular}                                                                                       & 3       & \begin{tabular}[c]{@{}l@{}}CS240 \\ \\ or CS345\end{tabular}                     \\ \hline
+CS159    & \begin{tabular}[c]{@{}l@{}}Advanced \\ \\ Programming\end{tabular}                 & \begin{tabular}[c]{@{}l@{}}Students use advanced \\ problem-solving \\ strategies to develop algorithms,\\ using classes and \\ objects and techniques \\ such as recursion, exceptions,\\ and file I/O. This \\ course also focuses \\ on designing small \\ applications,and \\ effective testing strategies.\end{tabular} & 3       & CS149                                                                            \\ \hline
+\end{tabular}
+\end{table}
+
+%% Discuss two or three specific questions about the data that your project will answer. How are these questions interesting? Why are they important questions to answer? What resources already exist that help answer these questions?
+\subsection*{Questions and Project Goals}
+
+The project will attempt to achieve the goals stated previously in the \textbf{"Vision"} section by answering the following three questions:
+\begin{enumerate}
+  \item \textit{How do we connect course requirements to the classes a student has already taken?} So often when looking for classes to take, a student is bogged down by options that a student can't take because they have not completed the required courses. If we can connect the already completed course of a student to the requirements of JMU courses, then we can significantly reduce the classes a student has to look for. To understand how to accomplish this, we will look at other sources to learn how best connect the data.
+  \item \textit{What interface design would create the most effective and simple navigation process for students?} One of the greatest issues we have identified with the current interface is its cumbersome structure. We plan to design a new interface that displays all important course information within one web page. In order to achieve this, we plan to use the team's background in web development to design a more streamlined experience.
+  \item  \textit{How can we restructure data to best reflect student needs?} The course catalog data is very broad, making it difficult for the user to query. First, we want to identify user needs and the student experience; then, we can model a new database off of this research. By altering how this data is stored and accessed, we hope to increase the usability of the JMU course catalog. 
+\end{enumerate} 
+
+%------------------------------------------------------------------------------%
+\section*{Users and Specs}
+%% Describe the main users of your application. Be specific; for example, what is their profession? How much experience do they have with data? Why would they want to use your project?
+\subsection*{Users}
+
+The users of our project include prospective JMU students, current students, faculty, staff and advisors. Students will use the course catalog to check their graduation requirements, search for courses that fill those requirements and fit with their schedule, and enroll in courses. Faculty and professors will use the system to input courses they are offering as well as logging in as an advisor to check a students graduation requirements. By making creating a new and improved website, we will be able to satisfy the needs of the JMU students by giving them an effortless experience in browsing the JMU catalog, broadening their understanding of the curriculum, and therefore, simplify their decision-making process. As a result, the university will benefit from these changes as the students make better informed decisions.  
+
+%% Discuss the high-level specifications. What functionality will your completed application provide? Explain a few use cases: what the user will do, and what the app will do. Leave out the technical details, such as what programming languages and software tools you'll use.
+\subsection*{Functional Requirements}
+\begin{itemize}
+  \item For a student account, the website must show which classes are needed for the student to graduate.
+  \item For a student account, the website must display classes that they have completed the pre-requisites for.
+  \item  For a student account, the website must only show classes that fit into the students schedule as far as class times.
+  \item  For a professor account, the website must provide permit the professors to input courses they are going to teach for the upcoming semester. In the case the professor does not know what time or location of the class being offered, the system must permit the professors to input null for these values.
+  \item  For a professor account, if the professor is an advisor, the system must display their advisee's graduation requirements to make sure they are on track to graduate.
+\end{itemize}
+%------------------------------------------------------------------------------%
+\section*{About the Team}
+
+\hspace{\parindent}\textbf{Susie Nguyen} is a second semester junior majoring in both Computer Science and Media Arts and Design, with a concentration in Interactive Design. Her technical background in Computer Science and user research background in Media Arts and Design will enhance the final solution. Her completed programming courses include Data Structures, Computer Systems, and Software Engineering; she has also taken Interactive Design for Web I and II as well as User Interaction Design. She is proficient in Java, C, and Python, and has experience with HTML, CSS, and Javascript. She plans to utilize a holistic view of both back-end development as well as end user experience to come up with an optimal database design. 
+
+ 
+\textbf{Josh Norton} is a senior Computer Science major.  His strengths include Java and C programming, as well as web development with HTML, CSS, and JavaScript.  He is currently the team lead for the web development team at Technology and Design for University Unions.  In addition, he has experience in web development and .Net programming through an internship at the United Network for Organ Sharing. Josh's broad experience with technical teamwork and programming will help this project come to fruition.
+
+
+\textbf{Alicia Pritchett} is a senior Computer Science major. She has a strong background in Python, Java, C, and Ruby. Between Bridgewater College and James Madison University, she has completed Scripting Languages, Java Development, Ethical Hacking, and Software Engineering. In terms of front-end programming experience, she has won two competitions at Bridgewater College based on web development. Her skills in both back-end and front-end development will supplement in creating the final database design.
+
+
+\textbf{Sam Kettlewell-Sites} is a senior majoring in Integrated Science and Technology and minoring in Computer Science, with a concentration in Information Knowledge Management. His concentration in IKM has provided him with a strong understanding of properly handling large swaths of data. His completed courses include Software Engineering, Software Development, Modeling and Simulation, and Machine Learning and Data Science. His experience with Java, Python, Net logo, SQLite, HTML, and CSS provides a varied background in different coding environments.
+
+
+
+%% Include a short biographical sketch for each team member. Focus on academic and professional experience, not where you were born and what your hobbies are. For example, you might list the most recent/advanced CS courses you have completed, software projects you have worked on the in past, internships or other relevant work experience, and/or unique background abilities and skills that you will bring to the project.
+%------------------------------------------------------------------------------%
+\end{document}
+

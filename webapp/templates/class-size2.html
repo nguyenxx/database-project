@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="static/js/jquery.min.js"></script>
+  <script src="static/js/bootstrap.bundle.min.js"></script>
+  <script src="static/js/jquery.easing.min.js"></script>
+  <script src="static/js/scrolling-nav.js"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <link rel="stylesheet" href="{{url_for('static', filename='css/custom.css')}}">
+  <link rel="stylesheet" media="screen" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300&display=swap" rel="stylesheet">
+
+  <style>
+    .padding {
+      padding-left: 66px;
+      padding-right: 66px;
+    }
+
+    li {
+      color: #151515;
+    }
+
+    a {
+      color: black;
+      transition: .7s ease;
+      font-family: 'Roboto', sans-serif;
+      font-size: 18px;
+    }
+
+    h1 {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 30px;
+      margin-top: 25px;
+      margin-left: 70px;
+      margin-right: 20px;
+      margin-bottom: 25px;
+      font-weight: 600;
+      color: #472b7f;
+      text-align: center;
+    }
+    p {
+      color: black;
+      font-family: 'Lato', sans-serif;
+      font-size: 16px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    .piechart {
+      margin-right: 25%;
+      margin-left: 25%;
+    }
+    .padding-bot {
+      padding-bottom: 40px;
+    }
+  </style>
+</head>
+
+<body class="body">
+  <!--Navbar-->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/"><img src="static/images/jmu-logo.png" alt="logo"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" href="/">About</a>
+        <a class="nav-item nav-link" href="/programs">Programs</a>
+        <a class="nav-item nav-link" href="/courses">Explore Courses</a>
+        <a class="nav-item nav-link active" href="/class">Class Sizes</a>
+        <a class="nav-item nav-link" href="/credits">Credits</a>
+        <a class="nav-item nav-link" href="/pre_req">Prerequisites</a>
+      </div>
+    </div>
+  </nav>
+  <!-- END Navbar-->
+
+  <div class="row">
+    <div class="container col-lg-12">
+      <div class="img-fluid" style="width: 100%">
+        <img src="static/images/class-sizes1.jpg" alt="jmu-lib" style="width:100%">
+      </div>
+    </div>
+  </div>
+
+<h1>Percentage of Classes Under a Certain Size</h1>
+
+<p style="text-align: center;"><b>JMU is focused on small class sizes to promote student engagement.</b>
+<b>Select a class size below to see what percentage of classes at JMU are under that size.</b></p>
+
+<form class="padding">
+  <p><select class="form-control input-sm" name="size" value="{{ size }}">
+    <option>Select a class size</option>
+    <option>5</option>
+    <option>10</option>
+    <option>20</option>
+    <option>30</option>
+    <option>40</option>
+    <option>50</option>
+    <option>60</option>
+    <option>70</option>
+    <option>80</option>
+    <option>90</option>
+    <option>100</option>
+  </select></p>
+  <p><button type="submit" class="btn btn-dark">Submit</button></p>
+</form>
+
+<p style="padding-left: 86px;"><b>Class size not selected. Please a class size.</b></p>
+
+<div class="padding-bot"></div>
+
+<footer id="sticky-footer" class="py-4 bg-light text-white-50">
+  <div class="container text-center">
+    <p style="font-size: 14px;">800 SOUTH MAIN STREET <br>
+      HARRISONBURG, VA 22807 <br>
+      <a href="#" style="font-size: 14px;">CONTACT US</a></p>
+  </div>
+</footer>
+</body>
+</html>

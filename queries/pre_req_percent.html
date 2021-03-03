@@ -1,0 +1,148 @@
+  <head>
+    
+  </head>
+
+  <body>
+
+    <h3>Query</h3>
+
+<pre>
+  SELECT *
+FROM Percent_of_pre_req_required_classes
+LIMIT 20;
+</pre>
+
+
+<style type="text/css">
+  .tg  {border-collapse:collapse;border-spacing:0;}
+  .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+  .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+  .tg .tg-0lax{text-align:left;vertical-align:top}
+  </style>
+  <table class="tg">
+    <tr>
+      <th class="tg-0lax">subject</th>
+      <th class="tg-0lax">percent</th>
+    </tr>
+    <tr>
+      <td class="tg-0lax">GPSYC</td>
+      <td class="tg-0lax">100</td>
+    </tr>
+    <tr>
+      <td class="tg-0lax">INDE</td>
+      <td class="tg-0lax">100</td>
+    </tr>
+    <tr>
+      <td class="tg-0lax">MAED</td>
+      <td class="tg-0lax">100</td>
+    </tr>
+    <tr>
+      <td class="tg-0lax">GSOCI</td>
+      <td class="tg-0lax">100</td>
+    </tr>
+    <tr>
+      <td class="tg-0lax">CE</td>
+      <td class="tg-0lax">100</td>
+    </tr>
+    <tr>
+      <td class="tg-0lax">BSAN</td>
+      <td class="tg-0lax">100</td>
+    </tr>
+    <tr>
+      <td class="tg-0lax">WMST</td>
+      <td class="tg-0lax">100</td>
+    </tr>
+    <tr>
+      <td class="tg-0lax">OM</td>
+      <td class="tg-0lax">100</td>
+    </tr>
+    <tr>
+      <td class="tg-0lax">ENVM</td>
+      <td class="tg-0lax">100</td>
+    </tr>
+    <tr>
+      <td class="tg-0lax">MSED</td>
+      <td class="tg-0lax">100</td>
+    </tr>
+    <tr>
+      <td class="tg-0lax">ELED</td>
+      <td class="tg-0lax">100</td>
+    </tr>
+    <tr>
+      <td class="tg-0lax">BUS</td>
+      <td class="tg-0lax">100</td>
+    </tr>
+    <tr>
+      <td class="tg-0lax">TR</td>
+      <td class="tg-0lax">99</td>
+    </tr>
+    <tr>
+      <td class="tg-0lax">BLAW</td>
+      <td class="tg-0lax">96</td>
+    </tr>
+    <tr>
+      <td class="tg-0lax">MATS</td>
+      <td class="tg-0lax">96</td>
+    </tr>
+    <tr>
+      <td class="tg-0lax">ATEP</td>
+      <td class="tg-0lax">95</td>
+    </tr>
+    <tr>
+      <td class="tg-0lax">SRM</td>
+      <td class="tg-0lax">88</td>
+    </tr>
+    <tr>
+      <td class="tg-0lax">GRPH</td>
+      <td class="tg-0lax">88</td>
+    </tr>
+    <tr>
+      <td class="tg-0lax">HM</td>
+      <td class="tg-0lax">87</td>
+    </tr>
+    <tr>
+      <td class="tg-0lax">ARED</td>
+      <td class="tg-0lax">84</td>
+    </tr>
+    
+    </table>    
+
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+     <!--Load the AJAX API-->
+     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+     <script type="text/javascript">
+ 
+       // Load the Visualization API and the corechart package.
+       google.charts.load('current', {'packages':['corechart']});
+ 
+       // Set a callback to run when the Google Visualization API is loaded.
+       google.charts.setOnLoadCallback(drawChart);
+ 
+       // Callback that creates and populates a data table,
+       // instantiates the pie chart, passes in the data and
+       // draws it.
+       function drawChart() {
+ 
+         // Create the data table.
+         var data = new google.visualization.DataTable();
+         data.addColumn('string', 'Subject');
+         data.addColumn('number', 'Percent of classes that require pre rec');
+         data.addRows([
+            {% for row in top_amount}
+              ["{{row[0]}}", {{row[1]}}],
+            {% endfor %}
+            ]);
+          
+ 
+         // Set chart options
+         var options = {'title':'The top 20 majors based on percent of classes that require a pre req.',
+                        'width':800,
+                        'height':600};
+ 
+         // Instantiate and draw our chart, passing in some options.
+         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+         chart.draw(data, options);
+       }</script>
+  </body>
+</html>

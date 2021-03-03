@@ -1,0 +1,1 @@
+Our web-based application serves as an academic tool for exploring different course options, enabling a more coherent in-depth view of all the information about the courses available to help students make better informed decisions and provides a graphical layout that displays interesting facts and figures about JMU course credits, class sizes and prerequisites.

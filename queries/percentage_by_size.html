@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+<body>
+
+<h3>Query</h3>
+
+<pre>
+Select *
+FROM percentage_by_size(25)
+</pre>
+
+<h3>Table</h3>
+
+<table border="1" cellpadding="3" style="text-align: center;">
+    <tr>
+        <th>Percentage of Classes Under 25 People</th>
+    </tr>
+    <tr>
+        <td>82.02%</td>
+    </tr>
+</table>
+
+<h3>Chart</h3>
+
+<div id="piechart" style="width: 500px; height: 300px;"></div>
+
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
+  function drawChart() {
+
+    var data = google.visualization.arrayToDataTable([
+      ["Number of Students", "Percentage of Classes"],
+      ["Classes Under 25 Students", 82.02],
+      ["Classes Over 25 Students", 17.98],
+    ]);
+
+    var options = {
+      chartArea: {width:'90%', height:'90%'},
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+    chart.draw(data, options);
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+<head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+</head>
+
+<body>
+
+  <h3>Query</h3>
+
+<pre>
+    SELECT major, count(instruction_type) AS number_of_courses
+    FROM teaching_type('SUMMER')
+    GROUP BY major
+    ORDER BY number_of_courses DESC
+    LIMIT 5;
+</pre>
+
+
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+</style>
+<table class="tg">
+  <tr>
+    <th class="tg-0lax">subject</th>
+    <th class="tg-0lax">percent</th>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Anthropology</td>
+    <td class="tg-0lax">6</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Health Sciences</td>
+    <td class="tg-0lax">4</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Integrated Science and Technology</td>
+    <td class="tg-0lax">3</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Arabic</td>
+    <td class="tg-0lax">2</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Japanese</td>
+    <td class="tg-0lax">2</td>
+  </tr>
+ 
+  
+  
+  </table>    
+
+  <div id="columnchart_values" style="width: 900px; height: 300px;"></div>
+
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
+  function drawChart() {
+
+    var data = google.visualization.arrayToDataTable([
+      ["Major", "Number of Classes"],
+      ["Anthropology", 6],
+      ["Health Sciences", 3],
+      ["Integrated Science and Tecnology", 3],
+      ["ARABIC", 2],
+      ["Japanese", 2],
+      
+    ]);
+
+    var view = new google.visualization.DataView(data);
+      view.setColumns([0, 1,
+                       { calc: "stringify",
+                         sourceColumn: 1,
+                         type: "string",
+                         role: "annotation" },
+                       ]);
+
+    var options = {
+        title: "Majors with the Most Courses Offered",
+        width: 1100,
+        height: 500,
+        bar: {groupWidth: "75%"},
+        legend: { position: "none" },
+      };
+
+      var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+
+    chart.draw(view, options);
+  }
+</script>
+</body>
+</html>

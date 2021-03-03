@@ -1,0 +1,115 @@
+<!-- Team Big Data -->
+
+<html>
+
+<head>
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/bootstrap.bundle.min.js"></script>
+    <script src="static/js/jquery.easing.min.js"></script>
+    <script src="static/js/scrolling-nav.js"></script>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/custom.css')}}">
+    <link rel="stylesheet" media="screen" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:700|Oswald|Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300&display=swap" rel="stylesheet">
+
+    <style>
+        h1 {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 30px;
+            margin-top: 25px;
+            margin-left: 70px;
+            margin-right: 20px;
+            margin-bottom: 25px;
+            font-weight: 600;
+            color: #472b7f;
+        }
+
+        .padding {
+            padding-left: 63px;
+            padding-right: 65px;
+        }
+
+        p {
+            color: black;
+            font-family: 'Lato', sans-serif;
+            font-size: 16px;
+        }
+
+        li {
+            color: #151515;
+        }
+
+        a {
+            color: black;
+            transition: .7s ease;
+            font-family: 'Roboto', sans-serif;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body class="body">
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/"><img src="static/images/jmu-logo.png" alt="logo"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="/">About <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="/programs">Programs</a>
+                <a class="nav-item nav-link active" href="/courses">Explore Courses</a>
+                <a class="nav-item nav-link" href="/class">Class Sizes</a>
+                <a class="nav-item nav-link" href="/credits">Credits</a>
+                <a class="nav-item nav-link" href="/pre_req">Prerequisites</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="row">
+        <div class="container col-lg-12">
+            <div class="img-fluid" style="width: 100%">
+                <img src="static/images/lib7.jpg" alt="jmu-lib" style="width:100%">
+            </div>
+        </div>
+    </div>
+
+    <h1 style="text-align: center;"> Explore Courses Within Your Program</h1>
+
+    <form class="padding">
+        <p><select class="form-control input-sm" name="major" value="{{ major }}">
+                <option> Select your major</option>
+                {% for row in cur2 %}
+                <option> {{ row[0]}}</option>
+                {% endfor %}
+            </select></p>
+        <p><select class="form-control input-sm" name="catalog_year" value="{{ catalog_year }}">
+                <option>Select Catalog Year</option>
+                <option>2020-2021 Undergraduate Catalog</option>
+                <option>2018-19 Undergraduate Catalog (DRAFT)</option>
+            </select></p>
+        <p><select class="form-control input-sm" name="view_chart" value="{{ view_chart }}">
+                <option>Choose View</option>
+                <option>Table View</option>
+                <option>Bubble Chart</option>
+            </select></p>
+        <p><button type="submit" class="btn btn-dark">Submit</button></p>
+        <!--<p><input type="submit"></p>-->
+    </form>
+
+    <p style="padding-left: 65px;"><b>View not selected. Please choose your preferred view.</b></p>
+
+    <footer id="sticky-footer" class="py-4 bg-light text-white-50">
+        <div class="container text-center">
+            <p style="font-size: 14px;">800 SOUTH MAIN STREET <br>
+                HARRISONBURG, VA 22807 <br>
+                <a href="#" style="font-size: 14px;">CONTACT US</a></p>
+        </div>
+    </footer>
+</body>
+
+</html>
